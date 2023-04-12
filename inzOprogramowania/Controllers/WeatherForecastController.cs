@@ -17,7 +17,7 @@ namespace inzOprogramowania.Controllers
         {
             _logger = logger;
         }
-
+        
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
