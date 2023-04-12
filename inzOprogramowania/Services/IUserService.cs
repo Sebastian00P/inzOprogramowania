@@ -4,7 +4,8 @@ namespace inzOprogramowania.Services
 {
     public interface IUserService
     {
-        public string GetMd5Hash(string password);
-        public Task<User> GetUserByUserNameAndPassword(string userName, string password);
+        string GetMd5Hash(string password);
+        Task<User> GetUserByUserNameAndPassword(string userName, string password);
+        Task CreateUser(User user);
     }
 }

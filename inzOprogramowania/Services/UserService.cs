@@ -17,6 +17,12 @@ namespace inzOprogramowania.Services
         {
             return await _databaseContext.Users.Where(x => x.UserName == userName && x.Password == password).FirstOrDefaultAsync();
         }
+        public async Task CreateUser(User user)
+        {
+            user.Role = "User";
+            _databaseContext.Users.Add(user);
+            await _databaseContext.SaveChangesAsync();
+        }
         public string GetMd5Hash(string password)
         {
             MD5 md5Hash = MD5.Create();

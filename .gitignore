@@ -16,3 +16,9 @@
 *.txt
 
 *.BuildWithSkipAnalyzers
+
+.vs/inzOprogramowania/v17/.suo
+
+*.v2
+
+*.1
