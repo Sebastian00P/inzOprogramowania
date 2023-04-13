@@ -1,4 +1,5 @@
-﻿using inzOprogramowania.Services;
+﻿using inzOprogramowania.Modeles;
+using inzOprogramowania.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace inzOprogramowania.Controllers
@@ -27,6 +28,22 @@ namespace inzOprogramowania.Controllers
             {
                 return BadRequest();
             }
+        }
+        [Route("Register")]
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            try
+            {
+                await _userService.CreateUser(user);
+                return Ok();
+
+            } 
+            catch (Exception ex) 
+            { 
+                return BadRequest();
+            }
+           
         }
     }
 }

@@ -13,7 +13,7 @@ namespace inzOprogramowania.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     [Migration("20230413134326_inital")]
-    partial class inital
+    partial class Inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
