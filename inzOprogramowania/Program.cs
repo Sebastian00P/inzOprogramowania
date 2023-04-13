@@ -1,6 +1,7 @@
-using inzOprogramowania.DataContext;
+﻿using inzOprogramowania.DataContext;
 using inzOprogramowania.Services;
 using Microsoft.EntityFrameworkCore;
+using inzOprogramowania.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,5 +32,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+Console.WriteLine( "App running");
 app.Run();

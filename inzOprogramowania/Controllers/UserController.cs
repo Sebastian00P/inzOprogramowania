@@ -24,7 +24,7 @@ namespace inzOprogramowania.Controllers
                 return Ok();
             }
             else
-            {              
+            {
                 return BadRequest();
             }
         }

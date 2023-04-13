@@ -7,13 +7,14 @@ namespace inzOprogramowania.Modeles
     public class Ads
     {
         [Key]
-        public long AdId { get; set; }
+        public long AdsId { get; set; }
         public string Title{ get; set; }
         public string Description { get; set; }
         public byte[] Image { get; set; }
         public DateTime CreationTime { get; set; }
         public DateTime ExpiredTime { get; set; }
-        [Column("AuthorId")]
+        public virtual User? User { get; set; }
         public long UserId { get; set; }
+        public virtual ICollection<Comments>? Comments { get; set; }
     }
 }

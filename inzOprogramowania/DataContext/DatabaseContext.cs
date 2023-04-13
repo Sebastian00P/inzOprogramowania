@@ -9,9 +9,21 @@ namespace inzOprogramowania.DataContext
         { 
 
         }
-       
-        public DbSet<User> Users { get; set; }
 
-       
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Comments>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Comments)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+                
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Ads> Ads { get; set; }
+        public DbSet<Comments> Comments { get; set; }
+
+
     }
 }
