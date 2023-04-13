@@ -14,7 +14,8 @@ namespace inzOprogramowania.Services.CommentsService
 
         public async Task<List<Comments>> GetCommentsByAdId(long adsId)
         {
-            return await _databaseContext.Comments.Where(x => x.AdsId == adsId).ToListAsync();
+            return await _databaseContext.Comments.Where(x => x.AdsId == adsId).OrderBy(x => x.CreationTime).ToListAsync();
         }
+        
     }
 }

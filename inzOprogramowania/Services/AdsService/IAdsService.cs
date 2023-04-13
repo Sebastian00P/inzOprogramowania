@@ -6,5 +6,8 @@ namespace inzOprogramowania.Services.AdsService
     {
         Task<List<Ads>> GetAll();
         Task CreateAds(Ads ads);
+        Task<List<Ads>> GetAllByUserId(long userId);
+        Task<Ads> GetAddById(long adsId);
+        Task EditAds(Ads ads);
     }
 }

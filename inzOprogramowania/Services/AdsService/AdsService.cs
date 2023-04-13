@@ -14,11 +14,25 @@ namespace inzOprogramowania.Services.AdsService
 
         public async Task<List<Ads>> GetAll()
         {
-            return await _databaseContext.Ads.ToListAsync();
+            var dateTime = DateTime.Now;
+            return await _databaseContext.Ads.Where(x => x.ExpiredTime > dateTime).ToListAsync();
         }
         public async Task CreateAds(Ads ads)
         {
             _databaseContext.Ads.Add(ads);
+            await _databaseContext.SaveChangesAsync();
+        }
+        public async Task<List<Ads>> GetAllByUserId(long userId)
+        {
+            return await _databaseContext.Ads.Where(x => x.UserId == userId).ToListAsync();
+        }
+        public async Task<Ads> GetAddById(long adsId)
+        {           
+            return await _databaseContext.Ads.Where(x => x.AdsId == adsId).FirstOrDefaultAsync();
+        }
+        public async Task EditAds(Ads ads)
+        {
+            _databaseContext.Ads.Update(ads);
             await _databaseContext.SaveChangesAsync();
         }
     }
