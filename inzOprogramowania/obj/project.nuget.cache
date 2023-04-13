@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NsS3Qkmwa98jh+dPC/aJeuzvxZSmVcbXYFpVtG5H89S2KtdbciVr58rAfiIpLytCWdFoW7A2bv49Je8ZZPEF+g==",
+  "dgSpecHash": "hLUsyYKGp87wRQwExpS0UVkapsO95YTZId3sZP7pBLhPGw3u1Khvzy72Mf4ooWjzwtoKMoI7rJOyWWSpzUNyWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\inzynieria_opr_proj\\inzOprogramowania\\inzOprogramowania\\inzOprogramowania.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Projekt_izOprogramowania\\inzOprogramowania\\inzOprogramowania\\inzOprogramowania.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

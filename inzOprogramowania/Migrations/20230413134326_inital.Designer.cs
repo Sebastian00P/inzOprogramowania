@@ -12,8 +12,8 @@ using inzOprogramowania.DataContext;
 namespace inzOprogramowania.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230413131601_initial")]
-    partial class initial
+    [Migration("20230413134326_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
