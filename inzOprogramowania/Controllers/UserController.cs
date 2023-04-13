@@ -15,14 +15,14 @@ namespace inzOprogramowania.Controllers
         }
 
         [Route("TryAuth")]
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> TryLogin(string login, string password)
         {
             var hashPWD = _userService.GetMd5Hash(password);
             var user = await _userService.GetUserByUserNameAndPassword(login, hashPWD);
             if (user != null)
             {
-                return Ok();
+                return Ok(user);
             }
             else
             {

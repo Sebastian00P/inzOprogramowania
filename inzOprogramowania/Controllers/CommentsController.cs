@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using inzOprogramowania.Modeles;
+using inzOprogramowania.Services.CommentsService;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace inzOprogramowania.Controllers
@@ -7,5 +9,16 @@ namespace inzOprogramowania.Controllers
     [ApiController]
     public class CommentsController : ControllerBase
     {
+        private readonly ICommentsService _commentsService;
+        public CommentsController (ICommentsService commentsService)
+        {
+            _commentsService = commentsService;
+        }
+        [Route("GetAllByAdsId")]
+        [HttpGet]
+        public async Task<List<Comments>> GetAllByAdsId(long adsId)
+        {
+           return await _commentsService.GetCommentsByAdId(adsId);
+        }
     }
 }
