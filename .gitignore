@@ -1,13 +1,7 @@
 
 *.vsidx
 
-*.dll
-
 *.pdb
-
-*.json
-
-*.cache
 
 *.props
 
@@ -22,3 +16,5 @@
 *.v2
 
 *.1
+
+.vs/inzOprogramowania/v16/.suo
