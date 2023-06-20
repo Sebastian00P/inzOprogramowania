@@ -21,5 +21,11 @@ namespace inzOprogramowania.Controllers
         {
            return await _commentsService.GetCommentsByAdId(adsId);
         }
+        [Route("CreateComment")]
+        [HttpPost]
+        public async Task CreateComment(CommentsDto commentsDto)
+        {
+            await _commentsService.CreateComment(commentsDto);
+        }
     }
 }
