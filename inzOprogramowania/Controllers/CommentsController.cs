@@ -1,4 +1,5 @@
-﻿using inzOprogramowania.Modeles;
+﻿using inzOprogramowania.ModelDtos;
+using inzOprogramowania.Modeles;
 using inzOprogramowania.Services.CommentsService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace inzOprogramowania.Controllers
         }
         [Route("GetAllByAdsId")]
         [HttpGet]
-        public async Task<List<Comments>> GetAllByAdsId(long adsId)
+        public async Task<List<CommentsDto>> GetAllByAdsId(long adsId)
         {
            return await _commentsService.GetCommentsByAdId(adsId);
         }

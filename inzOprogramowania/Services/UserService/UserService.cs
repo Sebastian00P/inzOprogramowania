@@ -1,5 +1,7 @@
 ﻿using inzOprogramowania.DataContext;
+using inzOprogramowania.ModelDtos;
 using inzOprogramowania.Modeles;
+using inzOprogramowania.Repos;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,34 +10,22 @@ namespace inzOprogramowania.Services
 {
     public class UserService : IUserService
     {
-        private readonly DatabaseContext _databaseContext;
-        public UserService(DatabaseContext databaseContext)
+        private readonly IUserRepository _userRepository;
+        public UserService(IUserRepository userRepository)
         {
-            _databaseContext = databaseContext;
+            _userRepository = userRepository;
         }
-        public async Task<User> GetUserByUserNameAndPassword(string userName, string password)
+        public async Task<UserDto> GetUserByUserNameAndPassword(string userName, string password)
         {
-            return await _databaseContext.Users.Where(x => x.UserName == userName && x.Password == password).FirstOrDefaultAsync();
+            return await _userRepository.GetUserByUserNameAndPassword(userName, password);
         }
-        public async Task CreateUser(User user)
+        public async Task CreateUser(UserDto user)
         {
-            user.Role = "User";
-            user.Password = GetMd5Hash(user.Password);
-            _databaseContext.Users.Add(user);
-            await _databaseContext.SaveChangesAsync();
+          await _userRepository.CreateUser(user);
         }
         public string GetMd5Hash(string password)
         {
-            MD5 md5Hash = MD5.Create();
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-
-            StringBuilder sBuilder = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
-            {
-                sBuilder.Append(data[i].ToString("x2"));
-            }
-
-            return sBuilder.ToString();
+           return _userRepository.GetMd5Hash(password);
         }
     }
 }

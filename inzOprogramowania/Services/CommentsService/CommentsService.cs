@@ -1,30 +1,31 @@
 ﻿using inzOprogramowania.DataContext;
+using inzOprogramowania.ModelDtos;
 using inzOprogramowania.Modeles;
+using inzOprogramowania.Repos;
 using Microsoft.EntityFrameworkCore;
 
 namespace inzOprogramowania.Services.CommentsService
 {
     public class CommentsService : ICommentsService
     {
-        private readonly DatabaseContext _databaseContext;
-        public CommentsService(DatabaseContext databaseContext)
+        private readonly ICommentsRepository _commentsRepository;
+        public CommentsService(ICommentsRepository commentsRepository)
         {
-            _databaseContext = databaseContext;
+            _commentsRepository = commentsRepository;
         }
 
-        public async Task<List<Comments>> GetCommentsByAdId(long adsId)
+        public async Task<List<CommentsDto>> GetCommentsByAdId(long adsId)
         {
-            return await _databaseContext.Comments.Where(x => x.AdsId == adsId).OrderBy(x => x.CreationTime).ToListAsync();
+            var comments = await _commentsRepository.GetAll();
+            return comments.Where(x => x.AdsId == adsId).OrderBy(x => x.CreationTime).ToList();
         }
-        public async Task CreateComment(Comments comment)
+        public async Task CreateComment(CommentsDto comment)
         {
-            await _databaseContext.Comments.AddAsync(comment);
-            await _databaseContext.SaveChangesAsync();
+            await _commentsRepository.CreateComment(comment);
         }
-        public async Task EditComment(Comments comment)
+        public async Task EditComment(CommentsDto comment)
         {
-            _databaseContext.Comments.Update(comment);
-            await _databaseContext.SaveChangesAsync();
+            await _commentsRepository.EditComment(comment);
         }
 
     }

@@ -1,11 +1,12 @@
-﻿using inzOprogramowania.Modeles;
+﻿using inzOprogramowania.ModelDtos;
+using inzOprogramowania.Modeles;
 using inzOprogramowania.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace inzOprogramowania.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -31,7 +32,7 @@ namespace inzOprogramowania.Controllers
         }
         [Route("Register")]
         [HttpPost]
-        public async Task<IActionResult> Register(User user)
+        public async Task<IActionResult> Register(UserDto user)
         {
             try
             {

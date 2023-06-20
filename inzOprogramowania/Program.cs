@@ -4,6 +4,7 @@ using inzOprogramowania.Controllers;
 using inzOprogramowania.Services;
 using inzOprogramowania.Services.AdsService;
 using inzOprogramowania.Services.CommentsService;
+using inzOprogramowania.Repos;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAdsService, AdsService>();
 builder.Services.AddScoped<ICommentsService, CommentsService>();
+builder.Services.AddScoped<IAdsRepository, AdsRepository>();
+builder.Services.AddScoped<ICommentsRepository, CommentsRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

@@ -1,13 +1,14 @@
-﻿using inzOprogramowania.Modeles;
+﻿using inzOprogramowania.ModelDtos;
+using inzOprogramowania.Modeles;
 
 namespace inzOprogramowania.Services.AdsService
 {
     public interface IAdsService
     {
-        Task<List<Ads>> GetAll();
-        Task CreateAds(Ads ads);
-        Task<List<Ads>> GetAllByUserId(long userId);
-        Task<Ads> GetAddById(long adsId);
-        Task EditAds(Ads ads);
+        Task<List<AdsDto>> GetAll();
+        Task CreateAds(AdsDto ads);
+        Task<List<AdsDto>> GetAllByUserId(long userId);
+        Task<AdsDto> GetAddById(long adsId);
+        Task EditAds(AdsDto ads);
     }
 }

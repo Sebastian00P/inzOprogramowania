@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using inzOprogramowania.ModelDtos;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace inzOprogramowania.Modeles
@@ -15,5 +16,21 @@ namespace inzOprogramowania.Modeles
         public bool IsActive { get; set; }
         public virtual ICollection<Ads>? Ads { get; set;}
         public virtual ICollection<Comments>? Comments { get; set;  }
+
+        public User MapUser(UserDto userDto)
+        {
+            var user = new User()
+            {
+                UserId = userDto.UserId,
+                UserName = userDto.UserName,
+                Password = userDto.Password,
+                Email = userDto.Email,
+                Role = userDto.Role,
+                IsActive = userDto.IsActive,
+                Ads = userDto.Ads,
+                Comments = userDto.Comments
+            };
+            return user;
+        }
     }
 }

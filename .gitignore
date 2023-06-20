@@ -18,3 +18,13 @@
 *.1
 
 .vs/inzOprogramowania/v16/.suo
+
+.vs/
+
+IntegralTests/bin/
+
+IntegralTests/obj/
+
+inzOprogramowania/obj/
+
+inzOprogramowania/bin/

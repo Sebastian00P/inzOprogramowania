@@ -1,12 +1,12 @@
 ﻿using inzOprogramowania.ModelDtos;
 using inzOprogramowania.Modeles;
 
-namespace inzOprogramowania.Services
+namespace inzOprogramowania.Repos
 {
-    public interface IUserService
+    public interface IUserRepository
     {
-        string GetMd5Hash(string password);
         Task<UserDto> GetUserByUserNameAndPassword(string userName, string password);
-        Task CreateUser(UserDto user);
+        Task CreateUser(UserDto userDto);
+        string GetMd5Hash(string password);
     }
 }

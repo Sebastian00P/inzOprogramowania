@@ -1,40 +1,41 @@
 ﻿using inzOprogramowania.DataContext;
+using inzOprogramowania.ModelDtos;
 using inzOprogramowania.Modeles;
+using inzOprogramowania.Repos;
 using Microsoft.EntityFrameworkCore;
 
 namespace inzOprogramowania.Services.AdsService
 {
     public class AdsService : IAdsService
     {
-        private readonly DatabaseContext _databaseContext;
-        public AdsService(DatabaseContext databaseContext)
+        private readonly IAdsRepository _adsRepository;
+        public AdsService(IAdsRepository adsRepository)
         {
-            _databaseContext = databaseContext;
+            _adsRepository = adsRepository;
         }
 
-        public async Task<List<Ads>> GetAll()
+        public async Task<List<AdsDto>> GetAll()
         {
             var dateTime = DateTime.Now;
             var daysToDisplay = dateTime.AddDays(-14);
-            return await _databaseContext.Ads.Where(x => x.ExpiredTime > dateTime && x.CreationTime >= daysToDisplay).ToListAsync();
+            var ads = await _adsRepository.GetAll();
+            return ads.Where(x => x.ExpiredTime > dateTime && x.CreationTime >= daysToDisplay).ToList();
         }
-        public async Task CreateAds(Ads ads)
+        public async Task CreateAds(AdsDto ads)
         {
-            _databaseContext.Ads.Add(ads);
-            await _databaseContext.SaveChangesAsync();
+            await _adsRepository.CreateAds(ads);           
         }
-        public async Task<List<Ads>> GetAllByUserId(long userId)
+        public async Task<List<AdsDto>> GetAllByUserId(long userId)
         {
-            return await _databaseContext.Ads.Where(x => x.UserId == userId).ToListAsync();
+            return await _adsRepository.GetAllByUserId(userId);
         }
-        public async Task<Ads> GetAddById(long adsId)
+        public async Task<AdsDto> GetAddById(long adsId)
         {           
-            return await _databaseContext.Ads.Where(x => x.AdsId == adsId).FirstOrDefaultAsync();
+            return await _adsRepository.GetAddById(adsId);
         }
-        public async Task EditAds(Ads ads)
+        public async Task EditAds(AdsDto ads)
         {
-            _databaseContext.Ads.Update(ads);
-            await _databaseContext.SaveChangesAsync();
+            await _adsRepository.EditAds(ads);
         }
     }
 }

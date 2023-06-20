@@ -1,4 +1,5 @@
-﻿using inzOprogramowania.Modeles;
+﻿using inzOprogramowania.ModelDtos;
+using inzOprogramowania.Modeles;
 using inzOprogramowania.Services;
 using inzOprogramowania.Services.AdsService;
 using Microsoft.AspNetCore.Authorization;
@@ -20,31 +21,31 @@ namespace inzOprogramowania.Controllers
 
         [Route("GetAll")]
         [HttpGet]
-        public async Task<List<Ads>> GetAll()
+        public async Task<List<AdsDto>> GetAll()
         {
            return await _adsService.GetAll();
         }
         [Route("Create")]
         [HttpPost]
-        public async Task Create(Ads ads)
+        public async Task Create(AdsDto ads)
         {
            await _adsService.CreateAds(ads);
         }
         [Route("GetAllByUserId")]
         [HttpGet]
-        public async Task<List<Ads>> GetAllByUserId(long userId)
+        public async Task<List<AdsDto>> GetAllByUserId(long userId)
         {
             return await _adsService.GetAllByUserId(userId);
         }
         [Route("GetAdsById")]
         [HttpGet]
-        public async Task<Ads> GetAdsById(long adsId)
+        public async Task<AdsDto> GetAdsById(long adsId)
         {
             return await _adsService.GetAddById(adsId);
         }
         [Route("EditAdd")]
         [HttpPost]
-        public async Task EditAdd(Ads ads)
+        public async Task EditAdd(AdsDto ads)
         {
             await _adsService.EditAds(ads);
         }
