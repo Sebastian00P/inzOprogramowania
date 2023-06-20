@@ -15,7 +15,8 @@ namespace inzOprogramowania.Services.AdsService
         public async Task<List<Ads>> GetAll()
         {
             var dateTime = DateTime.Now;
-            return await _databaseContext.Ads.Where(x => x.ExpiredTime > dateTime).ToListAsync();
+            var daysToDisplay = dateTime.AddDays(-14);
+            return await _databaseContext.Ads.Where(x => x.ExpiredTime > dateTime && x.CreationTime >= daysToDisplay).ToListAsync();
         }
         public async Task CreateAds(Ads ads)
         {

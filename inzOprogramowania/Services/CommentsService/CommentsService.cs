@@ -16,6 +16,16 @@ namespace inzOprogramowania.Services.CommentsService
         {
             return await _databaseContext.Comments.Where(x => x.AdsId == adsId).OrderBy(x => x.CreationTime).ToListAsync();
         }
-        
+        public async Task CreateComment(Comments comment)
+        {
+            await _databaseContext.Comments.AddAsync(comment);
+            await _databaseContext.SaveChangesAsync();
+        }
+        public async Task EditComment(Comments comment)
+        {
+            _databaseContext.Comments.Update(comment);
+            await _databaseContext.SaveChangesAsync();
+        }
+
     }
 }
