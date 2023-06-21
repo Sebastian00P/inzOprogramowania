@@ -1,4 +1,6 @@
 ﻿using inzOprogramowania.Modeles;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using Microsoft.AspNetCore.Mvc;
 
 namespace inzOprogramowania.ModelDtos
 {
@@ -7,6 +9,7 @@ namespace inzOprogramowania.ModelDtos
         public long AdsId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        [ModelBinder(BinderType = typeof(ByteArrayModelBinder))]
         public byte[] Image { get; set; }
         public DateTime CreationTime { get; set; }
         public DateTime ExpiredTime { get; set; }
