@@ -34,7 +34,7 @@ builder.Services.AddCors(options =>
 
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader();
+        builder.WithOrigins(frontendURL).AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
 });
 
@@ -48,7 +48,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors();
+app.UseCors("AnyOrigin");
 
 app.UseAuthorization();
 

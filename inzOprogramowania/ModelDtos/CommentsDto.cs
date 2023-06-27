@@ -7,10 +7,8 @@ namespace inzOprogramowania.ModelDtos
         public long CommentId { get; set; }
         public string Content { get; set; }
         public DateTime CreationTime { get; set; }
-        public virtual Ads? Ads { get; set; }
         public long AdsId { get; set; }
-        public long UserId { get; set; }
-        public virtual User? User { get; set; }
+        public long UserId { get; set; }     
 
         public CommentsDto MapCommentsDto(Comments comments)
         {
@@ -18,11 +16,9 @@ namespace inzOprogramowania.ModelDtos
             {
                 CommentId = comments.CommentId,
                 Content = comments.Content,
-                CreationTime = comments.CreationTime,
-                Ads = comments.Ads,
+                CreationTime = comments.CreationTime,        
                 AdsId = comments.AdsId,
-                UserId = comments.UserId,
-                User = comments.User
+                UserId = comments.UserId              
             };
             return commentsDto;
         }

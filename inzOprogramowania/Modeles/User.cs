@@ -26,9 +26,8 @@ namespace inzOprogramowania.Modeles
                 Password = userDto.Password,
                 Email = userDto.Email,
                 Role = userDto.Role,
-                IsActive = userDto.IsActive,
-                Ads = userDto.Ads,
-                Comments = userDto.Comments
+                IsActive = userDto.IsActive
+          
             };
             return user;
         }

@@ -9,9 +9,7 @@ namespace inzOprogramowania.ModelDtos
         public string Password { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
-        public bool IsActive { get; set; }
-        public virtual ICollection<Ads>? Ads { get; set; }
-        public virtual ICollection<Comments>? Comments { get; set; }
+        public bool IsActive { get; set; }    
 
         public UserDto MapUserDto(User user)
         {
@@ -22,9 +20,7 @@ namespace inzOprogramowania.ModelDtos
                 Password = user.Password,
                 Email = user.Email,
                 Role = user.Role,
-                IsActive = user.IsActive,
-                Ads = user.Ads,
-                Comments = user.Comments
+                IsActive = user.IsActive             
             };
             return userDto;
         }

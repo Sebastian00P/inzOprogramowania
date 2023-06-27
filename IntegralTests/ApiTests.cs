@@ -26,9 +26,9 @@ namespace IntegralTests
 
                 var ads = new List<Ads>
             {
-                new Ads { AdsId = 1, UserId = 1, Title = "Ad 1", Description = "Description 1", Image = new byte[1], CreationTime = new DateTime(), ExpiredTime = new DateTime() },
-                new Ads { AdsId = 2, UserId = 1, Title = "Ad 2", Description = "Description 2",Image = new byte[1], CreationTime = new DateTime(), ExpiredTime = new DateTime() },
-                new Ads { AdsId = 3, UserId = 2, Title = "Ad 3", Description = "Description 3", Image = new byte[1], CreationTime = new DateTime(), ExpiredTime = new DateTime() }
+                new Ads { AdsId = 1, UserId = 1, Title = "Ad 1", Description = "Description 1", ISBN = "test", CreationTime = new DateTime(), ExpiredTime = new DateTime() },
+                new Ads { AdsId = 2, UserId = 1, Title = "Ad 2", Description = "Description 2",ISBN = "test", CreationTime = new DateTime(), ExpiredTime = new DateTime() },
+                new Ads { AdsId = 3, UserId = 2, Title = "Ad 3", Description = "Description 3", ISBN = "test", CreationTime = new DateTime(), ExpiredTime = new DateTime() }
             };
 
                 dbContext.Users.Add(user);

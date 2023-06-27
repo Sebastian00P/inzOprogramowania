@@ -41,14 +41,14 @@ namespace inzOprogramowania.Repos
             var ads = new Ads()
             {
                 AdsId = adsDto.AdsId,
-                Comments = adsDto.Comments,
+                Comments = _databaseContext.Comments.Where(x => x.AdsId == adsDto.AdsId).ToList(),
                 CreationTime = adsDto.CreationTime,
                 Description = adsDto.Description,
                 ExpiredTime = adsDto.ExpiredTime,
-                Image = adsDto.Image,
+                ISBN = adsDto.ISBN,
                 Title = adsDto.Title,
                 UserId = adsDto.UserId,
-                User = adsDto.User
+                User = _databaseContext.Users.Where(x => x.UserId == adsDto.UserId).FirstOrDefault()
             };
             
             _databaseContext.Ads.Add(ads);
@@ -66,14 +66,14 @@ namespace inzOprogramowania.Repos
             var ads = new Ads()
             {
                 AdsId = adsDto.AdsId,
-                Comments = adsDto.Comments,
+                Comments = _databaseContext.Comments.Where(x => x.AdsId == adsDto.AdsId).ToList(),
                 CreationTime = adsDto.CreationTime,
                 Description = adsDto.Description,
                 ExpiredTime = adsDto.ExpiredTime,
-                Image = adsDto.Image,
+                ISBN = adsDto.ISBN,
                 Title = adsDto.Title,
                 UserId = adsDto.UserId,
-                User = adsDto.User             
+                User = _databaseContext.Users.Where(x => x.UserId == adsDto.UserId).FirstOrDefault()       
             };
             _databaseContext.Ads.Update(ads);
             await _databaseContext.SaveChangesAsync();

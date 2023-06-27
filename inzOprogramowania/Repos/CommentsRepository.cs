@@ -31,11 +31,11 @@ namespace inzOprogramowania.Repos
             {
                 CommentId = commentDto.CommentId,
                 Content = commentDto.Content,
-                Ads = commentDto.Ads,
+                Ads = _databaseContext.Ads.Where(x => x.AdsId == commentDto.AdsId).FirstOrDefault(),
                 AdsId = commentDto.AdsId,
                 CreationTime = commentDto.CreationTime,
                 UserId = commentDto.UserId,
-                User = commentDto.User
+                User = _databaseContext.Users.Where(x => x.UserId == commentDto.UserId).FirstOrDefault()    
             };
             await _databaseContext.Comments.AddAsync(comment);
             await _databaseContext.SaveChangesAsync();
@@ -46,11 +46,11 @@ namespace inzOprogramowania.Repos
             {
                 CommentId = commentDto.CommentId,
                 Content = commentDto.Content,
-                Ads = commentDto.Ads,
+                Ads = _databaseContext.Ads.Where(x => x.AdsId == commentDto.AdsId).FirstOrDefault(),
                 AdsId = commentDto.AdsId,
                 CreationTime = commentDto.CreationTime,
                 UserId = commentDto.UserId,
-                User = commentDto.User
+                User = _databaseContext.Users.Where(x => x.UserId == commentDto.UserId).FirstOrDefault()
             };
             _databaseContext.Comments.Update(comment);
             await _databaseContext.SaveChangesAsync();

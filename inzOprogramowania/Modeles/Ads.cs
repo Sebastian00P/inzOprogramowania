@@ -10,7 +10,7 @@ namespace inzOprogramowania.Modeles
         public long AdsId { get; set; }
         public string Title{ get; set; }
         public string Description { get; set; }
-        public byte[] Image { get; set; }
+        public string ISBN { get; set; }
         public DateTime CreationTime { get; set; }
         public DateTime ExpiredTime { get; set; }
         public virtual User? User { get; set; }

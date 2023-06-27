@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace inzOprogramowania.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AdsController : ControllerBase
     {
         private readonly IAdsService _adsService;
