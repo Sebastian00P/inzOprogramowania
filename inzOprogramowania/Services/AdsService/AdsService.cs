@@ -37,5 +37,9 @@ namespace inzOprogramowania.Services.AdsService
         {
             await _adsRepository.EditAds(ads);
         }
+        public async Task DeleteAds(long adsId)
+        {
+            await _adsRepository.DeleteAdd(adsId);
+        }
     }
 }

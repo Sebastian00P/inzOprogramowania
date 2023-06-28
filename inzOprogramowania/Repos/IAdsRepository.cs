@@ -10,5 +10,6 @@ namespace inzOprogramowania.Repos
         Task CreateAds(AdsDto adsDto);
         Task<AdsDto> GetAddById(long adsId);
         Task EditAds(AdsDto adsDto);
+        Task DeleteAdd(long adsId);
     }
 }

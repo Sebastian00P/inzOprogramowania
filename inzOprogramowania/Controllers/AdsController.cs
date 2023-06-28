@@ -49,5 +49,11 @@ namespace inzOprogramowania.Controllers
         {
             await _adsService.EditAds(ads);
         }
+        [Route("DeleteAdd")]
+        [HttpPost]
+        public async Task DeleteAdd(long adsId)
+        {
+           await _adsService.DeleteAds(adsId);
+        }
     }
 }

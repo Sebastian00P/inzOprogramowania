@@ -78,5 +78,11 @@ namespace inzOprogramowania.Repos
             _databaseContext.Ads.Update(ads);
             await _databaseContext.SaveChangesAsync();
         }
+        public async Task DeleteAdd(long adsId)
+        {
+            var ads = await _databaseContext.Ads.Where(x => x.AdsId == adsId).FirstOrDefaultAsync();
+            _databaseContext.Ads.Remove(ads);
+            await _databaseContext.SaveChangesAsync();
+        }
     }
 }

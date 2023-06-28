@@ -10,5 +10,6 @@ namespace inzOprogramowania.Services.AdsService
         Task<List<AdsDto>> GetAllByUserId(long userId);
         Task<AdsDto> GetAddById(long adsId);
         Task EditAds(AdsDto ads);
+        Task DeleteAds(long adsId);
     }
 }
